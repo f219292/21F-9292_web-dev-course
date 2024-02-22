@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calcuator</title>
+  </head>
+  <body>
+    <style>
+        table {
+          border: 1px solid black;
+        }
+        .Calculator-button [type="button"] {
+          width: 100%;
+          padding: 20px 40px;
+          background-color: green;
+          color: white;
+          font-size: 20px;
+          font-weight: bold;
+          font-family: "Calibri";
+          border: none;
+          border-radius: 5px;
+        }
+        .text_cal [type="text"] {
+          padding: 20px 40px;
+          font-size: 10px;
+          font-weight: bold;
+          border-radius: 10px;
+          border: 2px solid black;
+        }
+      </style>
+  
+    <table>
+      <tr>
+        <td colspan="3">
+          <div class="text_cal"><input type="text" id="calculation" /></div>
+        </td>
+        <td>
+          <div class="Calculator-button">
+            <input type="button" value="C" />
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="Calculator-button"><input type="button" value="1" /></div>
+        </td>
+        <td>
+          <div class="Calculator-button"><input type="button" value="2" /></div>
+        </td>
+        <td>
+          <div class="Calculator-button"><input type="button" value="3" /></div>
+        </td>
+        <td>
+          <div class="Calculator-button"><input type="button" value="/" /></div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="Calculator-button"><input type="button" value="4" /></div>
+        </td>
+        <td>
+          <div class="Calculator-button"><input type="button" value="5" /></div>
+        </td>
+        <td>
+          <div class="Calculator-button"><input type="button" value="6" /></div>
+        </td>
+        <td>
+          <div class="Calculator-button"><input type="button" value="*" /></div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="Calculator-button"><input type="button" value="7" /></div>
+        </td>
+        <td>
+          <div class="Calculator-button"><input type="button" value="8" /></div>
+        </td>
+        <td>
+          <div class="Calculator-button"><input type="button" value="9" /></div>
+        </td>
+        <td>
+          <div class="Calculator-button"><input type="button" value="-" /></div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="Calculator-button"><input type="button" value="0" /></div>
+        </td>
+        <td>
+          <div class="Calculator-button"><input type="button" value="." /></div>
+        </td>
+        <td>
+          <div class="Calculator-button"><input type="button" value="=" /></div>
+        </td>
+        <td>
+          <div class="Calculator-button"><input type="button" value="+" /></div>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
+
+
+<!-- Task 2 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Timetable</title>
+</head>
+<body>
+
+<h2 style="text-align: center;"><span>Department of Computer Science</span></h2>
+<h2 style="text-align: center;">BCS-6E</h2>
+<p>FAST-NU CFD CAMPUS</p>
+
+<table border="1">
+  <tr>
+    <th>Time</th>
+    <th>8:45 9:15</th>
+    <th>9:15 9:45</th>
+    <th>9:45 10:10</th>
+    <th>10:15 10:45</th>
+    <th>10:45 11:15</th>
+    <th>11:15 11:40<th>
+    <th>11:45 12:15</th>
+    <th>12:15 12:45</th>
+    <th>12:45 1:10</th>
+    <th>1:10 1:45</th>
+    <th>1:45 2:15</th>
+    <th>2:15 2:45</th>
+    <th>2:45 3:10</th>
+    <th>3:15 3:45</th>
+    <th>3:45 4:15</th>
+    <th>4:15 4:40</th>
+  </tr>
+  
+  <tr>
+    <td>Mon</td>
+    <td colspan="3"></td>
+    <td colspan="3">Web Programming<br>R-8 &nbsp;&nbsp; S.Mustafa</td>
+    <td colspan="4">Parallel and distributed Computing<br>R-9 &nbsp;&nbsp; M.Arshad</td>
+    <td colspan="1"> </td>
+    <td colspan="3">Artifical Intellgience <br>R-13 &nbsp;&nbsp; A.Raza </td>
+    <td colspan="3"></td>
+  </tr>
+  
+  <tr>
+    <td>Tue</td>
+    <td colspan="3">Computer Network <br> R-19 &nbsp;&nbsp; Dr Umar</td>
+    <td colspan="3">Artificial Intellgience<br>R-10 &nbsp;&nbsp; A.Raza</td>
+    <td colspan="4"></td>
+    <td colspan="1"> </td>
+    <td colspan="6">Artifical Intellgience Lab <br>Lab-1 &nbsp;&nbsp; A.Tabssum </td>
+    
+  </tr>
+  
+  <tr>
+    <td>Wed</td>
+    <td colspan="3"></td>
+    <td colspan="3"></td>
+    <td colspan="4"></td>
+    <td colspan="1"> </td>
+    <td colspan="6">Computer Network Lab <br>Lab-1 &nbsp;&nbsp; A.Hamza </td>
+  </tr>
+ 
+  <tr>
+    <td>Turs</td>
+    <td colspan="3"></td>
+    <td colspan="3">Computer Network<br>R-15 &nbsp;&nbsp; Dr Umar</td>
+    <td colspan="4">Software Design and Analysis<br>R-19 &nbsp;&nbsp; A.Azam</td>
+    <td colspan="1"> </td>
+    <td colspan="3">Web Programming<br>Lab-1 &nbsp;&nbsp; S.Mustafa </td>
+    <td colspan="3">Parallel and distributed Computing<br>R-19 &nbsp;&nbsp; M.Arshad</td>
+  </tr>
+ 
+  <tr>
+    <td>Fri</td>
+    <td colspan="3"></td>
+    <td colspan="3">Software Design and Analysis<br>R-14 &nbsp;&nbsp; A.Azam</td>
+    <td colspan="4"></td>
+    <td colspan="1"></td>
+    <td colspan="3"></td>
+    <td colspan="3"></td>
+  </tr>
+</table>
+
+<p>w.e.f January 27,2024</p>
+
+</body>
+</html>
+
+<!-- task 3 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV</title>
+  <style>
+    .flex-container {
+      display: flex;
+    }
+  </style>
+</head>
+<body>
+  <div class="flex-container">
+    <div style="background-color: lightgray ;">
+      <a href="picture.jpeg" alt="target">Profile Picture Icon </a>
+      <h2>Contact</h2>
+      <h3>Email:<span style="font-weight:100;">f219292@cfd.nu.edu.pk</span></h3>
+      <h3>Mobile No:<span style="font-weight:100;">+923--------</span></h3>
+      <h2>Skills</h2>
+      <ul type="disc">
+        <li><b>Programming Languages:C++</b></li>
+        <li><b>Frontend:HTML5,CSS3</b></li>
+      </ul>
+      <h2>Language</h2>
+      <ul type="disc">
+        <li>English</li>
+        <li>Urdu</li>
+      </ul>
+      <h2>Hobbies</h2>
+      <ul type="disc">
+        <li>Gardening</li>
+        <li>-------</li>
+      </ul>
+    </div>
+    <div style="background-color: skyblue;">
+      <h1>Ali Imtiaz</h1>
+      <p>Web Developer</p>
+      <h2>Summary</h2>
+      <p>To secure a challenging postion in a reputable organization to expand my learning knowledge and skill.</p>
+      <h2>Experience</h2>
+      <h4>Abc webdev pvt Itd - Senior Web Developer</h4>
+      <p>January 2022 to Present</p>
+      <ul type="disc">
+        <li>Actively enagaged in web creative design and development</li>
+        <li>Designing project & planning</li>
+      </ul>
+      <h4>Xyz webdev pvt Itd - Junior Web Developer</h4>
+      <p>August 2021 to December 2021</p>
+      <ul type="disc">   
+        <li>Actively enagaged in web creative design and development</li>
+        <li>Designing project & planning</li>
+        <li>Working on designing</li>
+      </ul>
+      <h2>Education</h2>
+      <p>
+        I am student of FAST UNIVERSITY of BATCH 21. I have done my  intermediate from Punjab Group of colleges.
+      <p>
+        <ul type="disc">
+        <li>
+          <h3>Project 1</h3>
+          <p> This project is based on html and inline CSS.</p>
+        </li>
+        </ul>
+      </div>
+  </div>
+</body>
+</html>
