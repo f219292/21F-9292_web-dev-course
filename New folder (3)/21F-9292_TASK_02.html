@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .app-wrap {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 300px;
+    }
+
+    header {
+      padding: 20px;
+    }
+
+    .search-box {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+      outline: none;
+    }
+
+    main {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .location .city {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .location .date {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    .current .temp {
+      font-size: 64px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .current .temp span {
+      font-size: 24px;
+      font-weight: normal;
+    }
+
+    .current .weather {
+      font-size: 20px;
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+
+    .current .hi-low {
+      font-size: 16px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-wrap">
+    <header>
+      <input type="text" autocomplete="off" class="search-box" placeholder="Search for a city..." />
+    </header>
+    <main>
+      <section class="location">
+        <div class="city">City, Country</div>
+        <div class="date">Day, Date Month Year</div>
+      </section>
+      <div class="current">
+        <div class="temp">--<span>°C</span></div>
+        <div class="weather">Weather Description</div>
+        <div class="hi-low">Min Temp / Max Temp</div>
+      </div>
+    </main>
+  </div>
+  <script>
+    const searchbox = document.querySelector('.search-box');
+    searchbox.addEventListener('keypress', setQuery);
+
+    function setQuery(evt) {
+      if (evt.keyCode == 13) {
+        getResults(searchbox.value);
+      }
+    }
+
+    function getResults(query) {
+      const apiKey = "fcc8de7015bbb202209bbf0261babf4c";
+      fetch(`https://api.openweathermap.org/data/2.5/weather?q=${query}&units=metric&APPID=${apiKey}`)
+        .then(weather => {
+          return weather.json();
+        }).then(displayResults);
+    }
+
+    function displayResults(weather) {
+      const city = document.querySelector('.location .city');
+      city.innerText = `${weather.name}, ${weather.sys.country}`;
+
+      const now = new Date();
+      const date = document.querySelector('.location .date');
+      date.innerText = dateBuilder(now);
+
+      const temp = document.querySelector('.current .temp');
+      temp.innerHTML = `${Math.round(weather.main.temp)}<span>°C</span>`;
+
+      const weather_el = document.querySelector('.current .weather');
+      weather_el.innerText = weather.weather[0].main;
+
+      const hilow = document.querySelector('.hi-low');
+      hilow.innerText = `${Math.round(weather.main.temp_min)}°C / ${Math.round(weather.main.temp_max)}°C`;
+    }
+
+    function dateBuilder(d) {
+      const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+      const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+      const day = days[d.getDay()];
+      const date = d.getDate();
+      const month = months[d.getMonth()];
+      const year = d.getFullYear();
+
+      return `${day} ${date} ${month} ${year}`;
+    }
+  </script>
+</body>
+</html>

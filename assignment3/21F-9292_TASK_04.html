@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: black;
+}
+
+.container {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+.player-choice,
+.computer-choice,
+.result {
+  display: inline-block;
+  margin: 0 20px;
+}
+
+.player-choice button {
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.player-choice button:hover {
+  background-color: #ddd;
+}
+
+#computer-hand {
+  width: 100px;
+  height: auto;
+}
+
+</style>
+<body>
+    <h1>Rock Paper Scissors</h1>
+    <div class="container">
+        <div class="player-choice">
+            <h2>Make Your Choice</h2>
+            <button id="rock">Rock</button>
+            <button id="paper">Paper</button>
+            <button id="scissors">Scissors</button>
+        </div>
+        <div class="computer-choice">
+            <h2>Computer's Choice</h2>
+        </div>
+        <div class="result">
+            <h2>Result</h2>
+            <p id="result-text"></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+<script>
+    const buttons = document.querySelectorAll('.player-choice button');
+const computerHand = document.getElementById('computer-hand');
+const resultText = document.getElementById('result-text');
+const choices = ['rock', 'paper', 'scissors'];
+
+function getComputerChoice() {
+  const randomIndex = Math.floor(Math.random() * choices.length);
+  return choices[randomIndex];
+}
+
+function getPlayerChoice() {
+  let playerChoice;
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      playerChoice = button.id;
+      playRound(playerChoice, getComputerChoice());
+    });
+  });
+}
+
+function playRound(playerChoice, computerChoice) {
+  if (playerChoice === computerChoice) {
+    resultText.textContent = 'It\'s a tie!';
+  } else if (playerChoice === 'rock' && computerChoice === 'scissors') {
+    resultText.textContent = 'You win!';
+  } else if (playerChoice === 'rock' && computerChoice === 'paper') {
+    resultText.textContent = 'You lose!';
+  } else if (playerChoice === 'paper' && computerChoice === 'rock') {
+    resultText.textContent = 'You win!';
+  } else if (playerChoice === 'paper' && computerChoice === 'scissors') {
+    resultText.textContent = 'You lose!';
+  } else if (playerChoice === 'scissors' && computerChoice === 'rock') {
+    resultText.textContent = 'You lose!';
+  } else if (playerChoice === 'scissors' && computerChoice === 'paper') {
+    resultText.textContent = 'You win!';
+  }
+  computerHand.src = `images/${computerChoice}.png`;
+}
+
+getPlayerChoice();
+
+
+</script>
+</html>
+
